@@ -21,3 +21,7 @@ Bank.prototype.withdraw = function(amount) {
   this.balance -= amount;
   this.transaction.addTransaction(undefined, -amount, this.balance);
 };
+
+Bank.prototype.history = function(){
+  return this.transaction.history
+}

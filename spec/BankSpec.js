@@ -1,5 +1,6 @@
 describe('Bank', function(){
-  var bank
+  var bank;
+
 
 
   beforeEach(function(){
@@ -31,5 +32,11 @@ describe('Bank', function(){
       expect(function(){bank.withdraw(2);}).toThrowError('Sorry not enaugh money');
     });
   });
+
+  describe('#getHistory', function(){
+    it('shows transations', function(){
+      expect(bank.history()).toEqual([])
+    })
+  })
 
 });
