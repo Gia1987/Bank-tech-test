@@ -25,6 +25,11 @@ describe('Bank', function(){
       bank.withdraw(1)
       expect(bank.balance).toEqual(0);
     });
+
+    it('raise an error if you try to withdraw money more than your balance ',function(){
+      bank.balance = 1
+      expect(function(){bank.withdraw(2);}).toThrowError('Sorry not enaugh money');
+    });
   });
 
 });
