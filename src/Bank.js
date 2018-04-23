@@ -1,20 +1,23 @@
 'use strict';
 
-function Bank(){
+function Bank(transaction = new Transaction){
   this.balance = 0
+  this.transaction = transaction;
 }
 
 Bank.prototype.balance = function() {
   return this.balance;
 };
 
-Bank.prototype.DepositMoney = function(ammount) {
-  this.balance += ammount;
+Bank.prototype.DepositMoney = function(amount) {
+  this.balance += amount;
+  this.transaction.addTransaction(undefined, amount, this.balance);
 };
 
-Bank.prototype.withdraw = function(ammount) {
-  if (this.balance - ammount < 0 ){
+Bank.prototype.withdraw = function(amount) {
+  if (this.balance - amount < 0 ){
   throw Error('Sorry not enaugh money');
   }
-  this.balance -= ammount;
+  this.balance -= amount;
+  this.transaction.addTransaction(undefined, -amount, this.balance);
 };
