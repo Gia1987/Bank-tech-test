@@ -2,6 +2,7 @@
 
 function Bank(){
   this.balance = 0
+
 }
 
 Bank.prototype.balance = function() {

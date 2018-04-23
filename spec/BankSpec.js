@@ -6,8 +6,14 @@ describe('Bank', function(){
     bank = new Bank
   });
 
-  describe('returns the balance', function(){
+  describe('#Balance', function(){
     it('returns my balance', function(){
+      expect(bank.balance).toEqual(bank.balance);
+    });
+  });
+
+  describe('#DepositMoney', function(){
+    it('User can puts money in', function(){
       expect(bank.balance).toEqual(bank.balance);
     });
   });
