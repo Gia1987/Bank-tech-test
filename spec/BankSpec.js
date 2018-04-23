@@ -21,6 +21,7 @@ describe('Bank', function(){
 
   describe('#withdrawal', function(){
     it('User can withdraw money ', function(){
+      bank.balance = 1
       bank.withdraw(1)
       expect(bank.balance).toEqual(0);
     });
