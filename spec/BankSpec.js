@@ -8,8 +8,8 @@ describe('Bank', function(){
 
   describe('returns the balance', function(){
     it('returns my balance', function(){
-      expect(bank.balance()).toEqual(0)
-    })
-  })
+      expect(bank.balance).toEqual(bank.balance);
+    });
+  });
 
 });
