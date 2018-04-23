@@ -14,7 +14,8 @@ describe('Bank', function(){
 
   describe('#DepositMoney', function(){
     it('User can puts money in', function(){
-      expect(bank.balance).toEqual(bank.balance);
+      bank.DepositMoney(1)
+      expect(bank.balance).toEqual(1);
     });
   });
 

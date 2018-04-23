@@ -8,3 +8,7 @@ function Bank(){
 Bank.prototype.balance = function() {
   return this.balance;
 };
+
+Bank.prototype.DepositMoney = function(ammount) {
+  this.balance += ammount;
+};
