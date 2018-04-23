@@ -35,7 +35,9 @@ describe('Bank', function(){
 
   describe('#getHistory', function(){
     it('shows transations', function(){
-      expect(bank.history()).toEqual([])
+      date = Date.now()
+      bank.DepositMoney(100)
+      expect(bank.getHistory()).toEqual([[date,100,100]])
     })
   })
 
