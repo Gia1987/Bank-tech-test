@@ -13,6 +13,6 @@
      var date = this.time()
      this.history.push([date, amount, balance]);
   };
-  
+
   exports.TransactionLog = TransactionLog;
   })(this);

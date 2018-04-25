@@ -1,10 +1,10 @@
 (function (exports){
   function Printer(){
-    
+
   }
 
   Printer.prototype.header = function(){
-    return 'Date || Credit || Debit || Balance "\n "'
+    return 'Date || Credit/Debit || Balance "\n "'
   }
 
   Printer.prototype.print = function(history){
