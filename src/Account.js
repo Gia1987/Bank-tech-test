@@ -1,8 +1,8 @@
 'use strict';
 
-function Account(transaction = new Transaction(), printer = new Printer()){
+function Account(transactionLog = new TransactionLog(), printer = new Printer()){
   this.balance = 0
-  this.transaction = transaction;
+  this.transactionLog = transactionLog;
   this.printer = printer;
 }
 
@@ -12,7 +12,7 @@ Account.prototype.balance = function() {
 
 Account.prototype.DepositMoney = function(amount) {
   this.balance += amount;
-  this.transaction.addTransaction(undefined, amount, this.balance);
+  this.transactionLog.addTransaction(undefined, amount, this.balance);
 };
 
 Account.prototype.withdraw = function(amount) {
@@ -20,13 +20,13 @@ Account.prototype.withdraw = function(amount) {
     throw Error('Sorry not enaugh money');
   }
   this.balance -= amount;
-  this.transaction.addTransaction(undefined, -amount, this.balance);
+  this.transactionLog.addTransaction(undefined, -amount, this.balance);
 };
 
 Account.prototype.getHistory = function(){
-  return this.transaction.history;
+  return this.transactionLog.history;
 }
 
 Account.prototype.statament = function(){
-  return this.printer.print(this.transaction.history);
+  return this.printer.print(this.transactionLog.history);
 }
