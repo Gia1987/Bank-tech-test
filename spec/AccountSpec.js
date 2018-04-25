@@ -1,8 +1,6 @@
 describe('Account', function(){
   var account;
 
-
-
   beforeEach(function(){
     account = new Account
   });
@@ -35,9 +33,10 @@ describe('Account', function(){
 
   describe('#getHistory', function(){
     it('shows transations', function(){
-      date = new Date()
+      date = new Date();
+      var str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
       account.DepositMoney(100)
-      expect(account.getHistory()).toEqual([[date, 100, 100]])
+      expect(account.getHistory()).toEqual([[str, 100, 100]])
     })
   })
 

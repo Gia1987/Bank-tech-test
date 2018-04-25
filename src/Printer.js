@@ -1,17 +1,20 @@
-function Printer(){
+(function (exports){
+  function Printer(){
+    
+  }
 
-}
+  Printer.prototype.header = function(){
+    return 'Date || Credit || Debit || Balance "\n "'
+  }
 
+  Printer.prototype.print = function(history){
+    var statement = ""
+    history.reverse().forEach(function(row){
+      statement += row[0] + " || " + row[1] + " || " + row[2] + "\n "
+    })
 
-Printer.prototype.header = function(){
-  return 'date || credit || debit || balance\n';
-}
+    return this.header() + statement
+  }
 
-Printer.prototype.print = function(history){
-  statement = ""
-  history.forEach(function(row){
-      statement += 'Date: '+ row[0] + " || " + 'Credit/Debit: ' + row[1] + " || " + 'Balance: ' + row[2] + "\n"
-  })
-
-  return statement
-}
+exports.Printer = Printer;
+})(this);
