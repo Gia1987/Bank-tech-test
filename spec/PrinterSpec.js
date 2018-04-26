@@ -7,11 +7,9 @@ describe('Printer', function(){
 
   describe('#print', function() {
     it('print the statament', function(){
-      account = new Account();
-      date = new Date()
-      var str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-      account.DepositMoney(100);
-      expect(printer.print(account.transactionLog.history)).toBe('Date || Credit/Debit || Balance "\n "' + str + ' || ' + 100 + ' || ' + 100 +"\n ");
+      var history = [["01/01/2000", 10,10],["01,01,2001", 20, 30]]
+      var string = "Date || Credit/Debit || Balance \n 01,01,2001 || 20 || 30\n 01/01/2000 || 10 || 10\n "
+      expect(printer.print(history)).toBe(string);
     })
   });
 });
