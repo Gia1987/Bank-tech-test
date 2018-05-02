@@ -34,9 +34,9 @@ $ open SpecRunner.html and the console
 ```
 // My output
 Date || Credit/Debit || Balance
- 25/4/2018 || -500 || 2500
- 25/4/2018 || 2000 || 3000
- 25/4/2018 || 1000 || 1000
+2/5/2018 || -500 || 2500
+2/5/2018 || 2000 || 3000
+2/5/2018 || 1000 || 1000
 ```
 ```
 // Expected output
