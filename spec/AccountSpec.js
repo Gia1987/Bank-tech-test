@@ -2,19 +2,28 @@ describe('Account', function(){
   var account;
 
   beforeEach(function(){
-    account = new Account
+    printer = {
+      print: function(value) {
+        return "Date || Credit/Debit || Balance \n 01/01/2001 || 10 || 20\n 01/01/2000 || 10 || 10\n ";}
+      };
+    transaction = {
+      addTransaction: function(amount, balance){
+      },
+      history: [['01/01/2000',10,10],['01/01/2001',10,20]]
+    };
+    account = new Account(transaction)
   });
 
   describe('#Balance', function(){
     it('returns my balance', function(){
-      expect(account.balance).toEqual(account.balance);
+      expect(account.getBalance()).toEqual(account.balance);
     });
   });
 
   describe('#DepositMoney', function(){
     it('User can puts money in', function(){
       account.DepositMoney(1)
-      expect(account.balance).toEqual(1);
+      expect(account.getBalance()).toEqual(1);
     });
   });
 
@@ -22,7 +31,7 @@ describe('Account', function(){
     it('User can withdraw money ', function(){
       account.balance = 1
       account.withdraw(1)
-      expect(account.balance).toEqual(0);
+      expect(account.getBalance()).toEqual(0);
     });
 
     it('raise an error if you try to withdraw money more than your balance ',function(){
@@ -32,12 +41,18 @@ describe('Account', function(){
   });
 
   describe('#getHistory', function(){
-    it('shows transations', function(){
-      date = new Date();
-      var str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-      account.DepositMoney(100)
-      expect(account.getHistory()).toEqual([[str, 100, 100]])
+    it('returns transactions history', function(){
+        account.DepositMoney(10)
+        account.DepositMoney(10)
+        expect(account.getHistory()).toEqual([['01/01/2000',10,10],['01/01/2001',10,20]])
+      });
     })
-  })
 
+  describe('#statament', function(){
+    it('call print method from Printer class', function(){
+      account.DepositMoney(10)
+      account.DepositMoney(10)
+      expect(account.statament()).toEqual("Date || Credit/Debit || Balance \n 01/01/2001 || 10 || 20\n 01/01/2000 || 10 || 10\n ")
+      });
+    })
 });
