@@ -6,7 +6,7 @@
     this.printer = printer;
   }
 
-  Account.prototype.balance = function() {
+  Account.prototype.getBalance = function() {
     return this.balance;
   };
 

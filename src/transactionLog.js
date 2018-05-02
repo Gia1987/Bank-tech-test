@@ -1,17 +1,12 @@
 (function (exports){
-  function TransactionLog(){
+  function TransactionLog(date = new DateFormat){
     this.history = []
-  }
-
-  TransactionLog.prototype.time = function() {
-      var date = new Date();
-      var str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-      return str;
+    this.date = date;
   }
 
   TransactionLog.prototype.addTransaction = function(amount, balance) {
-     var date = this.time()
-     this.history.push([date, amount, balance]);
+     var time = this.date.time()
+     this.history.push([time, amount, balance]);
   };
 
   exports.TransactionLog = TransactionLog;
