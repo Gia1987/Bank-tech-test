@@ -4,7 +4,7 @@
   }
 
   DateFormat.prototype.time = function() {
-      var str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+      var str =  this.date.getDate() + "/" + (this.date.getMonth() + 1) + "/" + this.date.getFullYear();
       return str;
 
   }
