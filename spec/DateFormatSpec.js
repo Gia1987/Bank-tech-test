@@ -4,10 +4,10 @@ describe('DateFormat', function() {
   beforeEach(function(){
     date = {
       getDate: function() {
-        return 01;
+        return 2;
       },
       getMonth: function() {
-        return 02;
+        return 2;
       },
       getFullYear: function() {
         return 2000;}
@@ -17,7 +17,8 @@ describe('DateFormat', function() {
 
   describe('#time', function(){
     it('returns the date', function(){
-      str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+      str = "2/3/2000"
+      // str =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
       expect(dateformat.time()).toEqual(str)
     })
   })

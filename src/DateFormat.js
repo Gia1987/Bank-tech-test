@@ -1,12 +1,10 @@
 (function (exports){
   function DateFormat(date = new Date()){
-    this.date = date
+    this.dateTransaction =  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
   }
 
   DateFormat.prototype.time = function() {
-      var str =  this.date.getDate() + "/" + (this.date.getMonth() + 1) + "/" + this.date.getFullYear();
-      return str;
-
+      return this.dateTransaction;
   }
 
   exports.DateFormat = DateFormat;
