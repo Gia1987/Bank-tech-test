@@ -22,7 +22,7 @@ $ open SpecRunner.html and the console
 
 ### Diagram Model
 
-![alt-text](Diagram.png)
+![alt-text](Diagram_Module.png)
 
 ### Acceptance criteria
 - Given a client makes a deposit of 1000 on 10-01-2012
